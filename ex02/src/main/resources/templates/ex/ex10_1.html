@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>전달받은 값들</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>총합</th>
+        <th>평균점수</th>
+    </tr>
+    <tr th:object="${taskVO}">
+        <td th:text="*{num}+ *{kor} + *{eng} + *{math} " ></td>
+        <td th:text="(*{num}+ *{kor} + *{eng} + *{math})/4 " ></td>
+    </tr>
+</table>
+
+</body>
+</html>

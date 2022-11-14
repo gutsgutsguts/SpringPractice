@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+    <tr class="tHead">
+        <th class="bno">오더 번호</th>
+        <th class="title">오더 날짜</th>
+        <th class="writer">아이템 번호</th>
+        <th class="regDate">아이템 수</th>
+        <th class="regDate">오더 총가격</th>
+        <th class="regDate">아이템 이름</th>
+        <th class="regDate">아이템 가격</th>
+        <th class="regDate">아이템 재고</th>
+        <th class="regDate">체크 여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="order:${orders}">
+        <tr class="tBody" th:object="${order}">
+            <td class="bno" th:text="*{orderId}"></td>
+            <td class="title"><a class="read" th:text="*{orderDate}" th:href="*{orderDate}"></a></td>
+            <td class="writer" th:text="*{itemNumber}"></td>
+            <td class="regDate" th:text="*{itemCount}"></td>
+            <td class="regDate" th:text="*{orderPrice}"></td>
+            <td class="regDate" th:text="*{itemName}"></td>
+            <td class="regDate" th:text="*{itemPrice}"></td>
+            <td class="regDate" th:text="*{itemStock}"></td>
+            <td class="check"><input type="checkbox" name="xxx" value="yyy" checked></td>
+            <td class="cancel"><button>취소하기</button></td>
+        </tr>
+    </th:block>
+    </tbody>
+
+
+</table>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.dropotron.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script th:inline="javascript"></script>
+</body>
+</html>
